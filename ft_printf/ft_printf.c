@@ -6,7 +6,7 @@
 /*   By: wabin-wa <wabin-wa@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 20:42:27 by wabin-wa          #+#    #+#             */
-/*   Updated: 2025/11/11 14:23:21 by wabin-wa         ###   ########.fr       */
+/*   Updated: 2025/11/11 16:14:13 by wabin-wa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ size_t	ft_putvar_printf(va_list *args, char c)
 				"0123456789ABCDEF"));
 	else if (c == '%')
 		return (ft_putchar_printf(c));
+	else
+		return (ft_putchar_printf('%') + ft_putchar_printf(c));
 	return (0);
 }
 
@@ -49,6 +51,8 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
+			if (*str == 0)
+				return (-1);
 			char_num += ft_putvar_printf(&args, *str);
 		}
 		else
