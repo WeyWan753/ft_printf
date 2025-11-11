@@ -6,7 +6,7 @@
 #    By: wabin-wa <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/07 20:08:59 by wabin-wa          #+#    #+#              #
-#    Updated: 2025/11/11 15:17:47 by wabin-wa         ###   ########.fr        #
+#    Updated: 2025/11/11 16:20:50 by wabin-wa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ all : $(NAME)
 $(NAME) : $(LIBFT_DIR) $(addprefix $(DIR)/,$(addprefix ft_,$(addsuffix .c, $(SRCS))))
 	$(MAKE) -C $(LIBFT_DIR) $(LIBFT_NAME)
 	$(CP) $(LIBFT_DIR)/$(LIBFT_NAME) $(NAME)
-	$(CC) -c $(addprefix $(DIR)/,$(addprefix ft_,$(addsuffix .c, $(SRCS))))
+	$(CC) $(FLAGS) -c $(addprefix $(DIR)/,$(addprefix ft_,$(addsuffix .c, $(SRCS))))
 	$(AR) $(NAME) $(addprefix ft_,$(addsuffix .o, $(SRCS)))
 
 
